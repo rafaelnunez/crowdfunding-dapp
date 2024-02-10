@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "homepage": "https://rafaelnunez.github.io/crowdfunding-dapp",
   "scripts": {
-    "predeploy": "npm run build && npx thirdweb@latest upload dist",
-    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
