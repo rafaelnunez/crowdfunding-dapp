@@ -9,7 +9,7 @@ import { checkIfImage } from "../utils"
 const CreateCampaign = () => {
   const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState<boolean>(false)
-  const { createCampaign } = useStateContext()
+  const { createCampaign }: any = useStateContext()
   const [form, setForm] = useState<Campaign>({
     name: "",
     title: "",
@@ -23,7 +23,7 @@ const CreateCampaign = () => {
     setForm({ ...form, [fieldName]: e.target.value })
   }
 
-  const handleSubmit = async (e: Event) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     checkIfImage(form.image, async (exits: boolean) => {
       if (exits) {
@@ -62,7 +62,7 @@ const CreateCampaign = () => {
             labelName="Your Name *"
             placeholder="Rafael Nuñez"
             inputType="text"
-            value={form.name}
+            value={form.name ?? ""}
             handleChange={(e) => handleFormFieldChange("name", e)}
           />
 

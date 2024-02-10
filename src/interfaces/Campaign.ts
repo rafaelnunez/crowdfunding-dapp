@@ -4,7 +4,7 @@ interface Campaign {
     title: string
     description: string
     target: string
-    deadline: string | number
+    deadline: string
     image: string
     owner?: string
     amountCollected?: string

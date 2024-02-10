@@ -8,7 +8,7 @@ import {
 import { ethers } from "ethers"
 import { createContext, useContext } from "react"
 
-const StateContext = createContext(null)
+const StateContext = createContext({})
 
 export const StateContextProvider = ({ children }: any): any => {
   const { contract } = useContract("0x8b31458a1791f5CdEe5A65a5eB5cd99Ce101Af6d")
@@ -83,7 +83,7 @@ export const StateContextProvider = ({ children }: any): any => {
     const donations = await contract?.call("getDonators", [pId])
     const numberOfDonations = donations[0].length
 
-    const parsedDonations = []
+    const parsedDonations: { donator: string; donation: string }[] = []
 
     for (let i = 0; i < numberOfDonations; i++) {
       parsedDonations.push({

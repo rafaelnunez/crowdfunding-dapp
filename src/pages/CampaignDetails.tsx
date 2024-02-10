@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useStateContext } from "../context"
 import { CountBox, CustomButton, Loader } from "../components"
 import { calculateBarPercentage, daysLeft } from "../utils"
+//@ts-ignore
 import { thirdweb } from "../assets"
 import { useLocation, useNavigate } from "react-router-dom"
 
@@ -16,7 +17,6 @@ const CampaignDetails = () => {
 
   const fetchDonators = async () => {
     const data = await getDonations(state.pId)
-    console.log(data)
 
     setDonators(data)
   }
@@ -65,9 +65,9 @@ const CampaignDetails = () => {
           />
           <CountBox
             title={`Raised of ${state.target}`}
-            value={state.amountCollected}
+            value={state.amountCollected ?? ""}
           />
-          <CountBox title="Total Backers" value={donators.length} />
+          <CountBox title="Total Backers" value={donators.length.toString()} />
         </div>
       </div>
 
