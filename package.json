@@ -2,13 +2,11 @@
   "name": "crowdfunding-dapp",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://rafaelnunez.github.io/crowdfunding-dapp",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && npx thirdweb@latest upload dist"
   },
   "dependencies": {
     "@thirdweb-dev/react": "^4",
